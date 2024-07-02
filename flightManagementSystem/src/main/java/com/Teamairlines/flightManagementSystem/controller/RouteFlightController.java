@@ -96,7 +96,7 @@ public class RouteFlightController {
         Flight flight2 = flightService.createReturnFlight(flight1, dtime, atime);
         flightDao.save(flight1);
         flightDao.save(flight2);
-        return new ModelAndView("index");
+        return new ModelAndView("redirect:/flights");
     }
 
     @GetMapping("/flights")

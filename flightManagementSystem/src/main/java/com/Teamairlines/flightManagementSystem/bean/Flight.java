@@ -13,20 +13,26 @@ public class Flight {
     private Integer seatCapacity;
     private String departure;
     private String arrival;
+    private Integer seatBooked;
 
     public Flight() {
         super();
     }
 
-    public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure, String arrival) {
-        super();
-        this.flightNumber = flightNumber;
-        this.carrierName = carrierName;
-        this.routeId = routeId;
-        this.seatCapacity = seatCapacity;
-        this.departure = departure;
-        this.arrival = arrival;
-    }
+   
+	public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure,
+			String arrival) {
+		super();
+		this.flightNumber = flightNumber;
+		this.carrierName = carrierName;
+		this.routeId = routeId;
+		this.seatCapacity = seatCapacity;
+		this.departure = departure;
+		this.arrival = arrival;
+		this.seatBooked = 0;
+	}
+
+	
 
     // Getters and Setters
 
@@ -78,15 +84,23 @@ public class Flight {
         this.arrival = arrival;
     }
 
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "flightNumber=" + flightNumber +
-                ", carrierName='" + carrierName + '\'' +
-                ", routeId=" + routeId +
-                ", seatCapacity=" + seatCapacity +
-                ", departure='" + departure + '\'' +
-                ", arrival='" + arrival + '\'' +
-                '}';
-    }
+    public Integer getSeatBooked() {
+		return seatBooked;
+	}
+
+
+	public void setSeatBooked(Integer seatBooked) {
+		this.seatBooked = seatBooked;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Flight [flightNumber=" + flightNumber + ", carrierName=" + carrierName + ", routeId=" + routeId
+				+ ", seatCapacity=" + seatCapacity + ", departure=" + departure + ", arrival=" + arrival
+				+ ", seatBooked=" + seatBooked + "]";
+	}
+
+
+	
 }

@@ -23,6 +23,7 @@
     align-items: center;
   }
   .login-bg {
+ 
     background: url('https://i.pinimg.com/564x/40/cf/29/40cf29baf3cb3a5386404831e0bab32b.jpg') no-repeat center center;
     background-size: cover;
     border-radius: 1rem 0 0 1rem;
