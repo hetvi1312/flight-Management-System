@@ -55,10 +55,9 @@
                     <th>Flight Number</th>
                     <th>Airlines Name</th>
                     <th>Route Id</th>
-                    <th>seat Capacity</th>
-                 
                      <th>Departure</th>
                      <th>Arrival</th>
+                    <th>seat Available</th>
                      <th>Book Flight</th>
                 </tr>
             </thead>
@@ -68,9 +67,10 @@
                         <td>${flight.flightNumber}</td>
                         <td>${flight.carrierName}</td>
                         <td>${flight.routeId}</td>
-                        <td>${flight.seatCapacity}</td>
                         <td>${flight.departure}</td>
                         <td>${flight.arrival}</td>
+                        <c:set var="seatAvailable" scope="session" value="${flight.seatCapacity-flight.seatBooked}"/>
+                        <td>${seatAvailable}</td>
                         <td><a href="#" class="btn btn-secondary btn-sm" >Booking</a></td>
                                                        </tr>
                 </c:forEach>

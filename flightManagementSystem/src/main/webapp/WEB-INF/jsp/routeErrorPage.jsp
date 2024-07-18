@@ -5,17 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+    window.onload = function() {
+        alert("${errorMessage}");
+        window.location.href = "/flight-search";
+    };
+</script>
 </head>
 <body>
-<div align="center">
-<h1 style="clor:red">
-${errorMessage}
-</h1>
-<h3><a href="/flight-search">click here to re-enter</a></h3>
-</div>
-
-              
-                   
-
 </body>
 </html>

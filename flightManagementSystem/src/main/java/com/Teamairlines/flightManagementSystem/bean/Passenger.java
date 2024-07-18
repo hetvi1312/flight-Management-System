@@ -8,7 +8,7 @@ public class Passenger {
 	@EmbeddedId
 	private TicketPassengerEmbed embeddedId;
 	private String passenegerName;
-	private Integer passengerAge;
+	private String passengerDOB;
 	private Double fare;
 	/**
 	 * 
@@ -18,11 +18,11 @@ public class Passenger {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Passenger(TicketPassengerEmbed embeddedId, String passenegerName, Integer passengerAge, Double fare) {
+	public Passenger(TicketPassengerEmbed embeddedId, String passenegerName,String passengerDOB, Double fare) {
 		super();
 		this.embeddedId = embeddedId;
 		this.passenegerName = passenegerName;
-		this.passengerAge = passengerAge;
+		this.passengerDOB = passengerDOB;
 		this.fare = fare;
 	}
 
@@ -42,12 +42,12 @@ public class Passenger {
 		this.passenegerName = passenegerName;
 	}
 
-	public Integer getPassengerAge() {
-		return passengerAge;
+	public String getPassengerDOB() {
+		return passengerDOB;
 	}
 
-	public void setPassengerAge(Integer passengerAge) {
-		this.passengerAge = passengerAge;
+	public void setPassengerDOB(String passengerDOB) {
+		this.passengerDOB = passengerDOB;
 	}
 
 	public Double getFare() {
@@ -61,7 +61,7 @@ public class Passenger {
 	@Override
 	public String toString() {
 		return "Passenger [embeddedId=" + embeddedId + ", passenegerName=" + passenegerName + ", passengerAge="
-				+ passengerAge + ", fare=" + fare + "]";
+				+ passengerDOB + ", fare=" + fare + "]";
 	}
 	
 }

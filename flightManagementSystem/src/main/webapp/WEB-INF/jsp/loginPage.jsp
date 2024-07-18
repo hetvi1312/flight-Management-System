@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page </title>
+<title>Login Page</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
@@ -18,21 +18,21 @@
   }
   .vh-100 {
     height: 100vh;
-    background-color: #ADD8E6; /* Light blue background color */
+    background-color: #ADD8E6;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .login-bg {
-    background: url('https://i.pinimg.com/564x/40/cf/29/40cf29baf3cb3a5386404831e0bab32b.jpg') no-repeat center center;
+    background: url('/assets/images/login.jpg') no-repeat center center;
     background-size: cover;
     border-radius: 1rem 0 0 1rem;
     animation: fadeIn 2s ease-in-out;
   }
   .card {
     border-radius: 1rem;
-    max-width: 800px; /* Adjusted maximum width of the form container */
-    margin: auto; /* Center the form horizontally */
+    max-width: 800px;
+    margin: auto;
   }
   .login-form {
     animation: slideIn 1.5s ease-in-out;
@@ -61,6 +61,11 @@
 </style>
 </head>
 <body>
+<% if (request.getAttribute("registrationSuccess") != null) { %>
+    <script type="text/javascript">
+        alert("Registration successful. Please log in.");
+    </script>
+<% } %>
 <section id="loginSection" class="vh-100">
   <div class="container py-5">
     <div class="card">
@@ -109,11 +114,8 @@
     const password = document.querySelector('#password');
     
     togglePassword.addEventListener('click', function (e) {
-      // toggle the type attribute
       const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      
-      // toggle the eye slash icon
       this.querySelector('i').classList.toggle('fa-eye-slash');
     });
   });

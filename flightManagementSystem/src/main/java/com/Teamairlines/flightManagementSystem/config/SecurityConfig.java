@@ -1,6 +1,9 @@
 package com.Teamairlines.flightManagementSystem.config;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -33,12 +36,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 	protected void configure(AuthenticationManagerBuilder authority) throws Exception {
 			authority.userDetailsService(service).passwordEncoder(config.passwordEncoder());
 	}
-	@Override
+	/*@Override
 	public void configure(HttpSecurity http ) throws Exception
 	{
-	http.authorizeRequests().antMatchers("/register").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/loginpage")
+	http.authorizeRequests()
+    .antMatchers("/register", "/images/**", "/css/**", "/js/**", "/assets/**").permitAll()
+.anyRequest().authenticated().and().formLogin().loginPage("/loginpage")
 	.failureUrl("/loginerror").loginProcessingUrl("/login")
 	.permitAll().and().logout().logoutSuccessUrl("/index");
  http.csrf().disable();		
+	}*/
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+	    http.authorizeRequests()
+	        .antMatchers("/register", "/images/**", "/css/**", "/js/**", "/assets/**").permitAll()
+	        .anyRequest().authenticated()
+	        .and()
+	        .formLogin()
+	            .loginPage("/loginpage")
+	            .failureUrl("/loginerror")
+	            .loginProcessingUrl("/login")
+	            .defaultSuccessUrl("/loginsuccess", true)
+	            .permitAll()
+	        .and()
+	        .logout()
+	            .logoutSuccessUrl("/index");
+	    http.csrf().disable();
 	}
+
 }

@@ -73,6 +73,7 @@
                                                 <form:input type="time" id="arrival" path="arrival" name="arrival" placeholder="Enter Arrival Time" class="form-control" required="true"/>
                                             </div>
                                         </div>
+                                        <form:hidden path="seatBooked" value="0"/>
                                         <div class="form-group row">
                                             <label for="returnDeparture" class="col-sm-2 col-form-label">Enter Return Departure Time:</label>
                                             <div class="col-sm-4">

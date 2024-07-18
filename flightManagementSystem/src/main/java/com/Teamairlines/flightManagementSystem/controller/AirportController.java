@@ -2,10 +2,11 @@ package com.Teamairlines.flightManagementSystem.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,10 +20,20 @@ public class AirportController {
 
     @Autowired
     private AirportDao airportDao;
-
+    
     @GetMapping("/index")
-    public ModelAndView showIndexPage() {
-        return new ModelAndView("index");
+    public ModelAndView showIndexPage(HttpServletRequest request) {
+        String username = request.getUserPrincipal().getName();
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("username", username);
+        return mv;
+    }
+    @GetMapping("/index1")
+    public ModelAndView showIndex1Page(HttpServletRequest request) {
+        String username = request.getUserPrincipal().getName();
+        ModelAndView mv = new ModelAndView("index1");
+        mv.addObject("username", username);
+        return mv;
     }
 
     @GetMapping("/airport")

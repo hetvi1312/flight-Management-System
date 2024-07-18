@@ -17,20 +17,20 @@
   }
   .vh-100 {
     height: 100vh;
-    background-color: #ADD8E6; /* Background color covering the entire viewport */
+    background-color: #ADD8E6;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .login-bg {
- 
-    background: url('https://i.pinimg.com/564x/40/cf/29/40cf29baf3cb3a5386404831e0bab32b.jpg') no-repeat center center;
+    background: url('/assets/images/login.jpg') no-repeat center center;
     background-size: cover;
     border-radius: 1rem 0 0 1rem;
     animation: fadeIn 2s ease-in-out;
   }
   .card {
     border-radius: 1rem;
+    max-width: 900px;
     margin: auto;
   }
   .login-form {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
+      <div class="col-12">
         <div class="card">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block login-bg"></div>

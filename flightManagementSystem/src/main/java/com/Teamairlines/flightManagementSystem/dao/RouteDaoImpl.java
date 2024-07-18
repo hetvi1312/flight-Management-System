@@ -1,8 +1,6 @@
 package com.Teamairlines.flightManagementSystem.dao;
 
 import com.Teamairlines.flightManagementSystem.bean.Route;
-import com.Teamairlines.flightManagementSystem.dao.RouteDao;
-import com.Teamairlines.flightManagementSystem.dao.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

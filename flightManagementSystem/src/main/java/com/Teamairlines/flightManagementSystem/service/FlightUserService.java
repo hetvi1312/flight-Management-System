@@ -29,4 +29,8 @@ public class FlightUserService implements UserDetailsService {
 	type=users.getType();
 	return users;
 }
+
+    public FlightUser findByUsername(String username) {
+        return repository.findByUsername(username).orElse(null);
+    }
 }
