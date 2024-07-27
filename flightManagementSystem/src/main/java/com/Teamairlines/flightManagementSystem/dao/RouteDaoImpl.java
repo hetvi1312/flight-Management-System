@@ -47,4 +47,13 @@ public class RouteDaoImpl implements RouteDao {
     public List<Long> findAllRoutesId() {
         return repository.findAllRoutesId();
     }
+
+    @Override
+    public void delete(Long routeId) {
+        repository.deleteById(routeId);
+    }
+    @Override
+    public long countRoutes() {
+        return repository.count(); // Implementing the count method
+    }
 }

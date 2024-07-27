@@ -1,123 +1,109 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header1.jsp" %>
 
-<div class="pcoded-content">
-    <!-- Page-header start -->
-    <div class="page-header">
-        <div class="page-block">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10">Ticket Details</h5>
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-2">
+            <h2 class="title">Ticket Details</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="/index1">Home</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Ticket Details</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+
+<!-- ticket details -->
+<section class="w3l-grids-3 py-5">
+    <div class="container py-md-3">
+        <div class="title-content text-left mb-lg-5 mb-4">
+            <h5>Ticket Details</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dst-btm">
+                        <h6>Ticket Number:</h6>
+                        <span>${ticket.ticketNumber}</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="dashboard.html"><i class="fa fa-home"></i></a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="#">Tickets</a></li>
-                        <li class="breadcrumb-item"><a href="#">Ticket Details</a></li>
-                    </ul>
+                    <div class="dst-btm">
+                        <h6>Flight Number:</h6>
+                        <span>${ticket.flightNumber}</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Page-header end -->
-
-    <div class="pcoded-inner-content">
-        <div class="page-wrapper">
-            <div class="page-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Ticket Details</h5>
-                                <div class="card-header-right">
-                                    <ul class="list-unstyled card-option">
-                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                                        <li><i class="fa fa-minus minimize-card"></i></li>
-                                        <li><i class="fa fa-refresh reload-card"></i></li>
-                                        <li><i class="fa fa-trash close-card"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-block table-border-style">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Ticket Number</th>
-                                                <th>Flight Number</th>
-                                                <th>Carrier Name</th>
-                                                <th>From City</th>
-                                                <th>To City</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>${ticket.ticketNumber}</td>
-                                                <td>${ticket.flightNumber}</td>
-                                                <td>${ticket.carrierName}</td>
-                                                <td>${fromCity}</td>
-                                                <td>${toCity}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <h3>Passenger Details</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Serial Number</th>
-                                                <th>Passenger Name</th>
-                                                <th>Date of Birth</th>
-                                                <th>Fare</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="passenger" items="${passengerList}">
-                                                <tr>
-                                                    <td>${passenger.embeddedId.serialNumber}</td>
-                                                    <td>${passenger.passenegerName}</td>
-                                                    <td>${passenger.passengerDOB}</td>
-                                                    <td>${passenger.fare}</td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <h3>Payment Details</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Total Amount</th>
-                                               
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>${ticket.totalAmount}</td>
-                                               
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <a href="dashboard.html" class="btn btn-secondary">Return to Home</a>
-                            </div>
-                        </div>
+                <div class="col-md-4">
+                    <div class="dst-btm">
+                        <h6>Carrier Name:</h6>
+                        <span>${ticket.carrierName}</span>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dst-btm">
+                        <h6>From City:</h6>
+                        <span>${fromCity}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dst-btm">
+                        <h6>To City:</h6>
+                        <span>${toCity}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dst-btm">
+                        <h6>Booking Date:</h6>
+                        <span>${bookingDate}</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Passenger Details</h3>
+            <c:forEach var="passenger" items="${passengerList}">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="dst-btm">
+                            <h6>Serial Number:</h6>
+                            <span>${passenger.embeddedId.serialNumber}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dst-btm">
+                            <h6>Passenger Name:</h6>
+                            <p>${passenger.passenegerName}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dst-btm">
+                            <h6>Date of Birth:</h6>
+                            <p>${passenger.passengerDOB}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dst-btm">
+                            <h6>Fare:</h6>
+                            <p>${passenger.fare}</p>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dst-btm">
+                        <h6>Total Amount:</h6>
+                        <span>${ticket.totalAmount}</span>
+                    </div>
+                </div>
+            </div>
+            <a href="/flight-search" class="btn btn-secondary">Return to Home</a>
+             <a href="/cancelTicket?ticketNumber=${ticket.ticketNumber}" class="btn btn-secondary" onclick="return confirm('Are you sure you want to cancel the booking?');">Cancel Ticket</a>
         </div>
     </div>
-</div>
+</section>
 
-<%@ include file="footer.jsp" %>
+
+
+<%@ include file="footer2.jsp" %>

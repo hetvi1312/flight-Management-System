@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <form:select path="type" id="type" class="form-control form-control-lg" required="true">
                       <form:option value="" label="Select type" disabled="true" selected="true"/>
                       <form:option value="admin" label="Admin"/>
-                      <form:option value="user" label="User"/>
+                      <form:option value="customer" label="Customer"/>
                     </form:select>
                   </div>
                   <div class="form-group">

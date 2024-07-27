@@ -6,9 +6,9 @@
 <meta charset="ISO-8859-1">
 <title>welcome</title>
 <script type="text/javascript">
-    window.onload = function() {
-        alert("Welcome,${username}...!!");
-        window.location.href = "/index1";
+     {
+        alert("Thank you for your feedback");
+        window.location.href = "/flight-search";
     };
 </script>
 </head>

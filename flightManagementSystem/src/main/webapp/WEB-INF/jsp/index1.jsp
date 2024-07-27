@@ -1,151 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ include file="header2.jsp" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="ISO-8859-1">
-<title>GYM Info Club</title>
-<style>
-  body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  .content {
-  	margin:50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: calc(100vh - 60px);  
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  .content img {
-    max-height: 80%;
-    max-width: 40%;
-  }
-  .text-content {
-    max-width: 50%;
-    color: #333;
-    text-align: left;
-  }
-  .text-content h1 {
-    font-size: 3em;
-    font-weight: bold;
-    margin: 0;
-    line-height: 1.2;
-  }
-  .text-content .red {
-    color: #C21807;
-  }
-  .text-content .yellow {
-    color: #FFD700;
-  }
-  .text-content p {
-    font-size: 1em;
-    margin: 20px 0;
-    line-height: 1.5;
-  }
-  .btn-container {
-    display: flex;
-    align-items: center;
-    margin: 40px 0; 
-  }
-  .btn-get-started {
-    background-color: #C21807;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-right: 20px;
-  }
-  .btn-get-started:hover {
-    background-color: #a51406;
-  }
-  .video-link {
-    display: flex;
-    align-items: center;
-    color: #C21807;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .video-link img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-  }
-  .video-link span {
-    display: inline-block;
-  }
-  .stats {
-    margin-top: 20px;
-    font-size: 1.1em;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .stat-item {
-    text-align: center;
-    position: relative;
-    padding: 0 20px;
-  }
-  .stat-item::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    bottom: 10%;
-    right: 0;
-    width: 1px;
-    background-color: #C21807;
-  }
-  .stat-item:last-child::after {
-    display: none;
-  }
-  .stat-number {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  .stat-text {
-    font-size: 1em;
-  }
-</style>
-</head>
-<body>
-<div class="content">
-  <img src="/images/index.jpg" alt="Gym Image">
-  <div class="text-content">
-    <h1><span>GET HEALTHY BODY</span></h1>
-    <h1><span>WITH THE PERFECT</span></h1>
-    <h1><span class="yellow">EXERCISES</span></h1>
-    <p>We are always there to help you to make a healthy body and mind through the power of fitness.</p>
-    <div class="btn-container">
-      <button class="btn-get-started">GET STARTED</button>
-      <div class="video-link">
-        <img src="/images/play.jpg" alt="Video Icon">
-        <span>Watch Video</span>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="header1.jsp" %>
+  <section class="w3l-main-slider" id="home">
+    <div class="banner-content">
+      <div id="demo-1"
+        data-zs-src='["assets2/images/banner1.jpg", "assets2/images/banner2.jpg","assets2/images/banner3.jpg", "assets2/images/banner4.jpg"]'
+        data-zs-overlay="dots">
+        <div class="demo-inner-content">
+          <div class="container">
+            <div class="banner-infhny">
+              <h3>You don't need to go far to find what matters.</h3>
+              <h6 class="mb-3">Discover your next adventure</h6>
+              <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
+              
+              <form:form action="/flight-search" method="post" class="booking-form">
+                  <div class="row book-form">
+                    <div class="form-input col-md-4 mt-md-0 mt-3">
+                        <select name="flight_city" id="fromCity"  class="selectpicker">
+                            
+                            <option value="opt1">Source:</option>
+                                                    <c:forEach var="city" items="${airportList}">
+                                                        <option value="${city}">${city}</option>
+                                                    </c:forEach>
+                                                </select></div>
+                          <div class="form-input col-md-4 mt-md-0 mt-3"> 
+                      <select name="to_city" id="toCity"  class="selectpicker">
+                       <option value="opt1">Destinaion:</option>
+                                                    <c:forEach var="city" items="${airportList}">
+                                                        <option value="${city}">${city}</option>
+                                                    </c:forEach>
+                                                </select>
+
+                    </div>
+                   
+                    <div class="bottom-btn col-md-4 mt-md-0 mt-3">
+                      <button type="submit" class="btn btn-style btn-secondary"><span class="fa fa-search mr-3"
+                          aria-hidden="true"></span> Search</button>
+                    </div>
+                  </div>
+                 </form:form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="stats">
-      <div class="stat-item">
-        <div class="stat-number">105+</div>
-        <div class="stat-text">Expert trainers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">970+</div>
-        <div class="stat-text">Members joined</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">135+</div>
-        <div class="stat-text">Fitness programs</div>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+  </section>
+<%@ include file="footer2.jsp" %>

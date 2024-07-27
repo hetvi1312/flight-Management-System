@@ -1,15 +1,16 @@
 package com.Teamairlines.flightManagementSystem.bean;
-
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.util.Collection; 
 
 
 @Entity
+@Table(name = "flight_user")
 public class FlightUser extends User
 {
 	@Id

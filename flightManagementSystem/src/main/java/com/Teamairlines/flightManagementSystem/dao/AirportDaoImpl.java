@@ -27,6 +27,10 @@ public class AirportDaoImpl implements AirportDao {
     public Airport findAirportById(String id) {
         return repository.findById(id).orElse(null);
     }
+    @Override
+    public long countAirports() {
+        return repository.count();
+    }
 
     @Override
     public List<String> findAllAirportCodes() {

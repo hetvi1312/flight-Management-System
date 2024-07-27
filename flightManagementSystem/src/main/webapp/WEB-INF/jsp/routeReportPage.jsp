@@ -3,7 +3,6 @@
 <%@ include file="header.jsp" %>
 
 <div class="pcoded-content">
-
     <!-- Page-header start -->
     <div class="page-header">
         <div class="page-block">
@@ -13,7 +12,6 @@
                         <h5 class="m-b-10">Route Report</h5>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item">
@@ -29,58 +27,65 @@
     <!-- Page-header end -->
 
     <div class="pcoded-inner-content">
-      
-            <div class="page-wrapper">
-                <div class="page-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Route Report</h5>
-                                    <div class="card-header-right">
-                                        <ul class="list-unstyled card-option">
-                                            <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                            <li><i class="fa fa-window-maximize full-card"></i></li>
-                                            <li><i class="fa fa-minus minimize-card"></i></li>
-                                            <li><i class="fa fa-refresh reload-card"></i></li>
-                                            <li><i class="fa fa-trash close-card"></i></li>
-                                        </ul>
-                                    </div>
+        <!-- Display success message if available -->
+        <c:if test="${not empty message}">
+            <script type="text/javascript">
+                alert("${message}");
+            </script>
+        </c:if>
+
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Route Report</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                        <li><i class="fa fa-minus minimize-card"></i></li>
+                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                        <li><i class="fa fa-trash close-card"></i></li>
+                                    </ul>
                                 </div>
-                                <div class="card-block table-border-style">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <thead>
-                <tr>
-                    <th>Route Id</th>
-                    <th>Source Airport Code</th>
-                    <th>Destination Airport Code</th>
-                     <th>fair</th>
-                </tr>
-            </thead>
-                                            <tbody>
-                <c:forEach var="route" items="${routeList}">
-                    <tr>
-                        <td>${route.routeId}</td>
-                        <td>${route.sourceAirportCode}</td>
-                        <td>${route.destinationAirportCode}</td>
-                        <td>${route.fair}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-                                        </table>
-                                    </div>
-                                    <a href="/index" class="btn btn-secondary">Back</a>
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Route Id</th>
+                                                <th>Source Airport Code</th>
+                                                <th>Destination Airport Code</th>
+                                                <th>fair</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="route" items="${routeList}">
+                                                <tr>
+                                                    <td>${route.routeId}</td>
+                                                    <td>${route.sourceAirportCode}</td>
+                                                    <td>${route.destinationAirportCode}</td>
+                                                     <td>${route.fair}</td>
+                                                    <td>
+                                                        <a href="/route/delete/${route.routeId}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this route?');">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
+                                <a href="/index" class="btn btn-secondary">Back</a>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <%@ include file="footer.jsp" %>
-
-

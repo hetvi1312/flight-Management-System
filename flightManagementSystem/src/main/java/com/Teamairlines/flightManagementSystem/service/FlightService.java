@@ -9,6 +9,7 @@ import com.Teamairlines.flightManagementSystem.bean.Route;
 
 @Service
 public class FlightService {
+
     @Autowired
     private RouteDao routeDao;
 
@@ -18,6 +19,6 @@ public class FlightService {
         String sourceCode = route.getDestinationAirportCode();
         String destinationCode = route.getSourceAirportCode();
         Route returnRoute = routeDao.findRouteBySourceAndDestination(sourceCode, destinationCode);
-        return new Flight(newId, flight.getCarrierName(), returnRoute.getRouteId(), flight.getSeatCapacity(), dtime, atime);
+        return new Flight(newId, flight.getCarrierName(), returnRoute.getRouteId(), flight.getSeatCapacity(), dtime, atime, flight.getImageUrl());
     }
 }

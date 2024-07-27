@@ -13,4 +13,6 @@ public interface AirportDao {
     String findAirportCodeByLocation(String location);
     void updateAirport(Airport airport);
     void deleteAirport(String id);
+    long countAirports();
+
 }

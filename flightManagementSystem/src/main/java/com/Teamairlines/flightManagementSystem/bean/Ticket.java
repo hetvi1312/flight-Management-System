@@ -5,80 +5,79 @@ import javax.persistence.Id;
 
 @Entity
 public class Ticket {
-	@Id
-	private Long ticketNumber;
-	private Long routeId;
-	private Long flightNumber;
-	private String carrierName;
-	private Double totalAmount;
-	
-	public Ticket() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    @Id
+    private Long ticketNumber;
+    private Long routeId;
+    private Long flightNumber;
+    private String carrierName;
+    private Double totalAmount;
+    private String username; // Add this field
 
-	/**
-	 * @param ticketNumber
-	 * @param routeId
-	 * @param flightNumber
-	 * @param carrierName
-	 * @param totalAmount
-	 */
-	public Ticket(Long ticketNumber, Long routeId, Long flightNumber, String carrierName, Double totalAmount) {
-		super();
-		this.ticketNumber = ticketNumber;
-		this.routeId = routeId;
-		this.flightNumber = flightNumber;
-		this.carrierName = carrierName;
-		this.totalAmount = totalAmount;
-	}
+    public Ticket() {
+        super();
+    }
 
-	public Long getTicketNumber() {
-		return ticketNumber;
-	}
+    public Ticket(Long ticketNumber, Long routeId, Long flightNumber, String carrierName, Double totalAmount, String username) {
+        super();
+        this.ticketNumber = ticketNumber;
+        this.routeId = routeId;
+        this.flightNumber = flightNumber;
+        this.carrierName = carrierName;
+        this.totalAmount = totalAmount;
+        this.username = username;
+    }
 
-	public void setTicketNumber(Long ticketNumber) {
-		this.ticketNumber = ticketNumber;
-	}
+    public Long getTicketNumber() {
+        return ticketNumber;
+    }
 
-	public Long getRouteId() {
-		return routeId;
-	}
+    public void setTicketNumber(Long ticketNumber) {
+        this.ticketNumber = ticketNumber;
+    }
 
-	public void setRouteId(Long routeId) {
-		this.routeId = routeId;
-	}
+    public Long getRouteId() {
+        return routeId;
+    }
 
-	public Long getFlightNumber() {
-		return flightNumber;
-	}
+    public void setRouteId(Long routeId) {
+        this.routeId = routeId;
+    }
 
-	public void setFlightNumber(Long flightNumber) {
-		this.flightNumber = flightNumber;
-	}
+    public Long getFlightNumber() {
+        return flightNumber;
+    }
 
-	public String getCarrierName() {
-		return carrierName;
-	}
+    public void setFlightNumber(Long flightNumber) {
+        this.flightNumber = flightNumber;
+    }
 
-	public void setCarrierName(String carrierName) {
-		this.carrierName = carrierName;
-	}
+    public String getCarrierName() {
+        return carrierName;
+    }
 
-	public Double getTotalAmount() {
-		return totalAmount;
-	}
+    public void setCarrierName(String carrierName) {
+        this.carrierName = carrierName;
+    }
 
-	public void setTotalAmount(Double totalAmount) {
-		this.totalAmount = totalAmount;
-	}
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
 
-	@Override
-	public String toString() {
-		return "Ticket [ticketNumber=" + ticketNumber + ", routeId=" + routeId + ", flightNumber=" + flightNumber
-				+ ", carrierName=" + carrierName + ", totalAmount=" + totalAmount + "]";
-	}
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 
-	
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket [ticketNumber=" + ticketNumber + ", routeId=" + routeId + ", flightNumber=" + flightNumber
+                + ", carrierName=" + carrierName + ", totalAmount=" + totalAmount + ", username=" + username + "]";
+    }
 }

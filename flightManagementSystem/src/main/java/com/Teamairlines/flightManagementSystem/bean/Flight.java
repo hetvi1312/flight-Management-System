@@ -13,15 +13,17 @@ public class Flight {
     private Integer seatCapacity;
     private String departure;
     private String arrival;
-    private Integer seatBooked;
+    
+    private String imageUrl; // URL for the flight image or airline's logo
 
     public Flight() {
-        super();
+        super(); // Default constructor
     }
 
-   
-	public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure,
-			String arrival) {
+    // Constructor with imageUrl field
+    
+    public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure,
+			String arrival,  String imageUrl) {
 		super();
 		this.flightNumber = flightNumber;
 		this.carrierName = carrierName;
@@ -29,12 +31,11 @@ public class Flight {
 		this.seatCapacity = seatCapacity;
 		this.departure = departure;
 		this.arrival = arrival;
-		this.seatBooked = 0;
+		
+		this.imageUrl = imageUrl;
 	}
 
 	
-
-    // Getters and Setters
 
     public Long getFlightNumber() {
         return flightNumber;
@@ -84,23 +85,13 @@ public class Flight {
         this.arrival = arrival;
     }
 
-    public Integer getSeatBooked() {
-		return seatBooked;
-	}
+  
 
+	public String getImageUrl() {
+        return imageUrl;
+    }
 
-	public void setSeatBooked(Integer seatBooked) {
-		this.seatBooked = seatBooked;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Flight [flightNumber=" + flightNumber + ", carrierName=" + carrierName + ", routeId=" + routeId
-				+ ", seatCapacity=" + seatCapacity + ", departure=" + departure + ", arrival=" + arrival
-				+ ", seatBooked=" + seatBooked + "]";
-	}
-
-
-	
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

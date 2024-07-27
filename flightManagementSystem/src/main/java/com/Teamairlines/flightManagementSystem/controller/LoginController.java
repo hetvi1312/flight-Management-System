@@ -1,11 +1,16 @@
 package com.Teamairlines.flightManagementSystem.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import com.Teamairlines.flightManagementSystem.bean.FlightUser;
@@ -52,9 +57,9 @@ public class LoginController {
         FlightUser user = service.findByUsername(username);
         ModelAndView mv;
         if (user.getType().equals("admin")) {
-            mv = new ModelAndView("welcomePage");
+            mv = new ModelAndView("adminwelcomePage");
         } else {
-            mv = new ModelAndView("UserwelcomePage");
+            mv = new ModelAndView("userwelcomePage");
         }
         mv.addObject("username", username);
         return mv;
@@ -64,4 +69,26 @@ public class LoginController {
     public ModelAndView showLoginErrorPage() {
         return new ModelAndView("loginErrorPage");
     }
+    
+    @GetMapping("/viewusers")
+    public ModelAndView viewUsersByType() {
+        String type = "user";  // Hardcoded type value
+        List<FlightUser> users = service.findByType(type);
+        ModelAndView mv = new ModelAndView("userListPage");
+        mv.addObject("users", users);
+        return mv;
+    }
+
+
+    // New method to delete a user by username
+    @DeleteMapping("/deleteuser")
+    public ModelAndView deleteUser(@RequestParam("username") String username) {
+        service.deleteByUsername(username);
+        ModelAndView mv = new ModelAndView("userListPage");
+        mv.addObject("deletionSuccess", true);
+        return mv;
+    }
+
+
+   
 }

@@ -1,5 +1,7 @@
 package com.Teamairlines.flightManagementSystem.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,14 +25,25 @@ public class FlightUserService implements UserDetailsService {
 		return type;
 	}
 	
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException { 
 	FlightUser users= repository.findById(username).get();
 	type=users.getType();
 	return users;
 }
-
+	public long countUsersByType(String type) {
+        return repository.countByType(type);
+    }
     public FlightUser findByUsername(String username) {
         return repository.findByUsername(username).orElse(null);
+    }
+    public List<FlightUser> findByType(String type) {
+        return repository.findByType(type);
+    }
+
+	// Delete user by username
+    public void deleteByUsername(String username) {
+        repository.deleteByUsername(username);
     }
 }
