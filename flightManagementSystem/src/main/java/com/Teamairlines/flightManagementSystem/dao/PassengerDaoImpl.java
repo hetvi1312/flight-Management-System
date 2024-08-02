@@ -33,4 +33,8 @@ public class PassengerDaoImpl implements PassengerDao {
     public void deleteByTicketNumber(Long ticketNumber) {
         repository.deleteByEmbeddedId_TicketNumber(ticketNumber);
     }
+    @Override
+    public List<Passenger> findByTicketNumber(Long ticketNumber) {
+        return repository.findByEmbeddedIdTicketNumber(ticketNumber);
+    }
 }

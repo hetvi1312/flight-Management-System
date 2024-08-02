@@ -8,7 +8,8 @@ public interface FeedbackDao {
     List<Feedback> displayAllFeedbacks(); 
     Long generateFeedbackId();
     Feedback findFeedbackById(Long id); // Optional: Method to find feedback by ID
-    void updateFeedback(Feedback feedback); // Optional: Method to update feedback
+  // Optional: Method to update feedback
     void deleteFeedback(Long id); // Optional: Method to delete feedback
     long countFeedbacks();
+    List<Feedback> findFeedbackByUsername(String username);
 }

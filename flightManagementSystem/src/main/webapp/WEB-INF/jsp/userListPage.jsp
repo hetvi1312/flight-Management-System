@@ -53,10 +53,10 @@
                                                     </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="user" items="${users}" varStatus="status">
+                                                <c:forEach var="customer" items="${users}" varStatus="status">
                                                     <tr>
                                                         <td>${status.index + 1}</td>
-                                                        <td>${user.username}</td>
+                                                        <td>${customer.username}</td>
                                                        </tr>
                                                 </c:forEach>
                                             </tbody>

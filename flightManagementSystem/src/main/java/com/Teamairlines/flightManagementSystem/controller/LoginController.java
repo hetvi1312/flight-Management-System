@@ -72,7 +72,7 @@ public class LoginController {
     
     @GetMapping("/viewusers")
     public ModelAndView viewUsersByType() {
-        String type = "user";  // Hardcoded type value
+        String type = "customer";  // Hardcoded type value
         List<FlightUser> users = service.findByType(type);
         ModelAndView mv = new ModelAndView("userListPage");
         mv.addObject("users", users);

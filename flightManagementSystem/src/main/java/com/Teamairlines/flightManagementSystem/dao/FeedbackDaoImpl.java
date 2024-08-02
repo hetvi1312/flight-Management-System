@@ -34,11 +34,7 @@ public class FeedbackDaoImpl implements FeedbackDao {
         return repository.findById(id).orElse(null); // Optional: Implement find by ID
     }
 
-    @Override
-    public void updateFeedback(Feedback feedback) {
-        repository.save(feedback); // Optional: Implement update
-    }
-
+   
     @Override
     public void deleteFeedback(Long id) {
         repository.deleteById(id); // Optional: Implement delete
@@ -46,5 +42,9 @@ public class FeedbackDaoImpl implements FeedbackDao {
     @Override
     public long countFeedbacks() {
         return repository.count();
+    }
+    @Override
+    public List<Feedback> findFeedbackByUsername(String username) {
+        return repository.findByUsername(username);
     }
 }

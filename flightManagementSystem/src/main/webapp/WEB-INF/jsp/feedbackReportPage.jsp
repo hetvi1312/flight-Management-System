@@ -69,7 +69,7 @@
                                                     <tr>
                                                         <td>${status.index + 1}</td>
                                                         <td>${feedback.fId}</td>
-                                                        <td>${feedback.userName}</td>
+                                                        <td>${feedback.name}</td>
                                                         <td>${feedback.content}</td>
                                                        
                                                        <td> <a href="/deleteFeedback?id=${feedback.fId}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this feedback?');">Delete</a>

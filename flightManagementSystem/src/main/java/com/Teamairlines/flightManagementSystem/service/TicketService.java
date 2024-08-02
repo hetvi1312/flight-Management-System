@@ -73,7 +73,7 @@ public class TicketService {
         int availableSeats = seatCapacity - seatsBookedToday;
 
         if (availableSeats < numberOfSeatBooking) {
-            throw new SeatNotFoundException("Not enough seats available for flight " + flightNumber + " on " + bookingDate);
+            throw new SeatNotFoundException("Not seats available for flight " + flightNumber + " on " + bookingDate);
         } else {
             if (dailyBooking != null) {
                 dailyBooking.setSeatsBooked(seatsBookedToday + numberOfSeatBooking);

@@ -48,10 +48,14 @@
             <li class="nav-item">
               <a class="nav-link" href="/feedback">Feedback</a>
             </li>
+            
 
-		<!--<li class="nav-item">
-              <a class="nav-link" href="/user-booking-history">Booking Detalis</a>
-            </li>-->
+		<li class="nav-item">
+              <a class="nav-link" href="/ticketHistory">Booking detalis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="feedback-history">Feedback detalis</a>
+            </li>
 		
 		
 		

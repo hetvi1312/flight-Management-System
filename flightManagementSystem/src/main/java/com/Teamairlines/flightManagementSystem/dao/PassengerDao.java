@@ -11,4 +11,6 @@ public interface PassengerDao {
     Optional<Passenger> findById(TicketPassengerEmbed id);
     List<Passenger> findAll();
     void deleteByTicketNumber(Long ticketNumber);
+    List<Passenger> findByTicketNumber(Long ticketNumber);
+
 }

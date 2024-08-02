@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Teamairlines.flightManagementSystem.bean.Airport;
+import com.Teamairlines.flightManagementSystem.bean.DailySeatBooking;
 import com.Teamairlines.flightManagementSystem.bean.Flight;
 import com.Teamairlines.flightManagementSystem.bean.Passenger;
 import com.Teamairlines.flightManagementSystem.bean.Route;
@@ -193,6 +194,49 @@ public class TicketController {
             return new ModelAndView("errorPage")
                 .addObject("errorMessage", "An error occurred while canceling the ticket.");
         }
+    }
+
+    @GetMapping("/ticketHistory")
+    public ModelAndView viewTicketHistory(HttpServletRequest request) {
+        String username = request.getUserPrincipal().getName();
+        List<Ticket> tickets = ticketDao.findTicketsByUsername(username);
+
+        ModelAndView mv = new ModelAndView("userbookinghistory");
+        mv.addObject("tickets", tickets);
+
+        return mv;
+    }
+
+    @GetMapping("/ticketDetails")
+    public ModelAndView viewTicketDetails(@RequestParam("ticketNumber") Long ticketNumber) {
+        Optional<Ticket> optionalTicket = ticketDao.findById(ticketNumber);
+        if (!optionalTicket.isPresent()) {
+            return new ModelAndView("errorPage")
+                .addObject("errorMessage", "Ticket not found.");
+        }
+
+        Ticket ticket = optionalTicket.get();
+        
+        // Use the correct query method for the composite key
+        List<Passenger> passengers = passengerDao.findByTicketNumber(ticketNumber); 
+
+        // Fetch booking details from DailySeatBooking
+        DailySeatBooking dailySeatBooking = dailySeatBookingDao.findBookingByTicketNumber(ticketNumber);
+        LocalDate bookingDate = (dailySeatBooking != null) ? dailySeatBooking.getBookingDate() : null;
+
+        // Fetch route details
+        Route route = routeDao.findRouteById(ticket.getRouteId());
+        String fromCity = route.getSourceAirportCode();
+        String toCity = route.getDestinationAirportCode();
+
+        ModelAndView mv = new ModelAndView("ticketDetailsPage");
+        mv.addObject("ticket", ticket);
+        mv.addObject("passengerList", passengers);
+        mv.addObject("fromCity", fromCity);
+        mv.addObject("toCity", toCity);
+        mv.addObject("bookingDate", bookingDate);
+
+        return mv;
     }
 
 
